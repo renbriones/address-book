@@ -85,30 +85,6 @@ public class AddressBook
     }
 
     /**
-     * Find person with passed name
-     * 
-     * @param name
-     * @return the Person
-     */
-    public Person find(String name)
-    {
-        if (persons == null || name == null)
-        {
-            return null;
-        }
-
-        for (Person person : persons)
-        {
-            if (person.getName() != null && person.getName().contains(name))
-            {
-                return person;
-            }
-        }
-
-        return null;
-    }
-
-    /**
      * Filter List
      * 
      * @param filter
@@ -130,5 +106,10 @@ public class AddressBook
         {
             Collections.sort(persons, new PersonDOBComparator());
         }
+    }
+
+    public void getDOBDifferenceInDays(Person person1, Person person2)
+    {
+
     }
 }

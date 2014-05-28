@@ -46,10 +46,13 @@ public class AddressBookMain
             System.out.println("Q: Who is the oldest person in the address book?");
             System.out.println("A: " + addressBook.getPersons().get(0).getName());
 
+            List<Person> personsNameBill = addressBook.filter(new NameFilter("Bill"));
+            List<Person> personsNamePaul = addressBook.filter(new NameFilter("Paul"));
+
             Days days =
                     getDays(
-                            addressBook.find("Bill").getDateOfBirth(),
-                            addressBook.find("Paul").getDateOfBirth());
+                            personsNameBill.get(0).getDateOfBirth(),
+                            personsNamePaul.get(0).getDateOfBirth());
             System.out.println("Q: How many days older is Bill than Paul?");
             System.out.println("A: " + days.getDays());
         }
