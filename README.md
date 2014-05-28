@@ -1,6 +1,5 @@
-# address-book
+# Address Book
 
-Date: 28/05/2014
 ============
 
 Compiled with Java 1.7
@@ -14,3 +13,6 @@ Reads the AddressBook file in /src/main/resource folder and answer the following
 3. How many days older is Bill than Paul?
 
 AddressBookMain.java is the main class.
+
+
+Date: 28/05/2014

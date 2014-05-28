@@ -110,9 +110,4 @@ public class AddressBook
             Collections.sort(persons, new PersonDOBComparator());
         }
     }
-
-    public void getDOBDifferenceInDays(Person person1, Person person2)
-    {
-
-    }
 }
