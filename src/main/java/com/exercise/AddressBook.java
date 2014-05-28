@@ -3,6 +3,7 @@ package com.exercise;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -24,13 +25,17 @@ public class AddressBook
         List<Person> persons = getTestData();
         MaleFilter maleFilter = new MaleFilter();
 
+        //1. filter all male persons
         List<Person> male = maleFilter.filterList(persons);
         System.out.println("Q: How many males are in the address book?");
         System.out.println("A: " + male.size());
 
+        //2. sort list by date of birth, oldest comes first
+        Collections.sort(persons, new PersonDOBComparator());
         System.out.println("Q: Who is the oldest person in the address book?");
-        System.out.println("A: ?"  );
+        System.out.println("A: " + persons.get(0).getName());
 
+        
         System.out.println("Q: How many days older is Bill than Paul?");
         System.out.println("A: ?" );
     }
