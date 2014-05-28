@@ -1,6 +1,7 @@
 package com.exercise;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import java.util.ArrayList;
@@ -66,7 +67,6 @@ public class AddressBookTest
     @Test
     public void testFindWhenMoreThanTwoNames()
     {
-
         List<Person> persons = new ArrayList<Person>();
         persons.add(new Person("first person", "male", new Date()));
         persons.add(new Person("first person", "female", new Date()));
@@ -76,5 +76,17 @@ public class AddressBookTest
         Person person = aBook.find("first");
         assertEquals("Found the person", "first person", person.getName());
         assertEquals("Found the person", "male", person.getGender());
+    }
+
+    @Test
+    public void testInitAddressBook() throws Exception
+    {
+        AddressBook aBook = new AddressBook();
+        aBook.initAddressBook("AddressBookTest");
+
+        assertNotNull(aBook.getPersons());
+        assertEquals("Found the person", "Gemma Lane", aBook.find("Gemma").getName());
+        assertNull("Error in date, Will not include date Paul", aBook.find("Paul"));
+        assertNull("With missing data, Will not include date Sarah", aBook.find("Sarah"));
     }
 }
