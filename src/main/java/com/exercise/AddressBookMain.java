@@ -1,10 +1,10 @@
 package com.exercise;
 
-import java.util.Date;
 import java.util.List;
 
-import org.joda.time.DateTime;
-import org.joda.time.Days;
+import com.exercise.comparator.PersonDOBComparator;
+import com.exercise.filter.MaleFilter;
+import com.exercise.filter.NameFilter;
 
 /**
  * Read AddressBook file and answer the following questions:<br/>
@@ -42,25 +42,26 @@ public class AddressBookMain
             System.out.println("A: " + male.size());
 
             // 2. sort list by date of birth, oldest comes first
-            addressBook.sort(new PersonDOBComparator());
+            PersonDOBComparator dobComparator = new PersonDOBComparator();
+            addressBook.sort(dobComparator);
             System.out.println("Q: Who is the oldest person in the address book?");
             System.out.println("A: " + addressBook.getPersons().get(0).getName());
 
+            // 3. compare two date of birth
             List<Person> personsNameBill = addressBook.filter(new NameFilter("Bill"));
             List<Person> personsNamePaul = addressBook.filter(new NameFilter("Paul"));
 
-            Days days =
-                    getDays(
-                            personsNameBill.get(0).getDateOfBirth(),
-                            personsNamePaul.get(0).getDateOfBirth());
-            System.out.println("Q: How many days older is Bill than Paul?");
-            System.out.println("A: " + days.getDays());
+            if (!personsNameBill.isEmpty() && !personsNamePaul.isEmpty())
+            {
+                int days =
+                        dobComparator.getDifferenceOfDOBByDays(
+                                personsNameBill.get(0),
+                                personsNamePaul.get(0));
+
+                System.out.println("Q: How many days older is Bill than Paul?");
+                System.out.println("A: " + days);
+            }
         }
 
-    }
-
-    private static Days getDays(Date date1, Date date2)
-    {
-        return Days.daysBetween(new DateTime(date1), new DateTime(date2));
     }
 }

@@ -1,7 +1,9 @@
-package com.exercise;
+package com.exercise.filter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.exercise.Person;
 
 /**
  * Filter implementation to retrieve list of males

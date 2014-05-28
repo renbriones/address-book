@@ -12,6 +12,9 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
+import com.exercise.comparator.PersonDOBComparator;
+import com.exercise.filter.Filter;
+
 /**
  * 
  * @author IBriones

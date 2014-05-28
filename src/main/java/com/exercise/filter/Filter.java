@@ -1,6 +1,8 @@
-package com.exercise;
+package com.exercise.filter;
 
 import java.util.List;
+
+import com.exercise.Person;
 
 /**
  * Filter interface for manipulating the List of Person.
